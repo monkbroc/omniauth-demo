@@ -1,0 +1,13 @@
+<div class="signin-container">
+  <h2>Sign in with</h2>
+
+  <%- if devise_mapping.omniauthable? %>
+    <ul class="image-list signin-icons">
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <li><%= link_to omniauth_authorize_path(resource_name, provider), :title => "Sign in with #{provider.to_s.titleize}" do %>
+          <%= image_tag "oauth_#{provider}.png", :alt => "Sign in with #{provider.to_s.titleize}" %><% end -%>
+        </li>
+      <% end %>
+    </ul>
+  <% end -%>
+</div>

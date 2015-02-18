@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OmniauthDemo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <ul class="nav">
+    <% if user_signed_in? -%>
+      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+    <% else -%>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <% end -%>
+  </ul>
+
+  <% flash.each do |name, msg| %>
+    <h2 class="flash"><%= msg %></h2>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>
